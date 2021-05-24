@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <title>Welcome Page</title>
+</head>
+<body>
+    <h1>Welcome to Django {{request.user}}...!!!</h1><br>
+    <br>
+{% for e in entries %}
+{{forloop.counter}} --- {{e.id}}---- {{e}} 
+&nbsp;<a href="{% url 'edit' e.id %}" >Edit</a>  
+&nbsp;<a href="{% url 'remove' e.id %}" >Remove</a>
+&nbsp;<a href="{% url 'transfer_user' e.id %}" >Transfer User</a> <br> <br>
+{% endfor %}
+<br><br>
+
+<a href="{% url 'add_entry' %}">Add Entry</a>
+    <br>
+    {%if request.user.is_authenticated %} 
+        <a href="{% url 'logout' %}">Log-Out</a>
+    {% endif %}
+
+</body>
+</html>

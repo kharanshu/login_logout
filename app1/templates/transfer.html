@@ -1,0 +1,30 @@
+<html>
+<body>
+
+<h1>Transfer User</h1>
+
+
+<p>Transfer user for selected Entry.</p>
+
+<form method="post">
+    {% csrf_token %}
+    {% if entry %}
+  <label for="Entry_Title">Entry Title:</label>
+  <input type="text" id="title" value={{entry}}><br><br>
+
+  <label for="Entry">Transfer User to:</label>
+  <select name="transfer_to" id="id_created_by">
+     
+    <option value="admin">admin</option>
+    <option value="admin">kharanshu</option>
+  </select>
+  <br><br>
+  <input type="submit" value="Transfer User">
+
+    {% endif %}
+</form>
+
+
+
+</body>
+</html>
