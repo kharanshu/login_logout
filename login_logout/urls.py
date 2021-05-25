@@ -27,8 +27,14 @@ urlpatterns = [
     path("signup/", views.signup, name='signup'),
     path("c-pass-old/", views.change_password_with_old, name='change_password_with_old'),
     path("c-pass/", views.change_password, name='change_password'),
+
+    path("user-profile/", views.user_profile, name='user_profile'),
+    path("user-details/<int:id>/", views.user_details, name='user_details'),
+    
     path("add-entry/", views.add_entry, name='add_entry'),
     path("edit/<int:id>/", views.edit, name='edit'),
     path("remove/<int:id>/", views.remove, name='remove'),
     path("transfer-user/<int:id>/", views.transfer_user, name='transfer_user'),
+
+
 ]

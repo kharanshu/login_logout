@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>User Change Form</title>
+</head>
+<body>
+<form method="post" novalidate>
+{% csrf_token %}
+{% for f in form %}
+{{f.label_tag}} {{f}} {{f.errors}} <br><br>
+{% endfor %}
+
+<input type="submit" value="Update">
+</form>
+
+<br><hr>
+<h3>All Users</h3>
+
+{% if request.user.is_superuser %}
+
+{% for usr in users %}
+{{usr.id}} -- <a href="{% url 'user_details' usr.id %}">{{usr.username}}</a> -- {{usr.first_name}}  <br><br>
+{% endfor %}
+
+{% endif %}
+</body>
+</html>

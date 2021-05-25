@@ -24,7 +24,6 @@ def superuser_only(func):
 
         else:
             return func(request, *args, **kwargs)
-
     return inner
 
 # Time it decorator
@@ -36,7 +35,6 @@ def time_it(func):
         te = time.time()
         print('time taken for the view is:- ', ts-te)
         return result
-
     return inner
 
 
